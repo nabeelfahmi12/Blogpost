@@ -1,0 +1,25 @@
+    {%  extends'base.html' %}
+
+    {% block head %}
+    <title>Nabeel Blog New Post </title>
+    {% endblock %}
+
+
+
+    {%  block body %}
+        <h1 style="color:Red;font-size:40px;"> <b><strong> You Have come to Create New Post </strong></b></h1>
+        <p style="colur:Blue;font-size:20px;"><i>You can Create your post here</i></p>
+
+        <hr>
+        <h2>New Blog Post:</h2>
+        <form action="/new_post" method="POST">
+            <label for="title">Title</label><input class="form-control" type="text" name="title" id="title" placeholder="Enter Title" aria-label="Enter Title">
+             <br><br>
+            <label for="author">Author</label><input class="form-control" type="text"  name="author" id="author" placeholder="Enter Author" aria-label="Enter Author">
+            <br><br>
+            <label for="content">Post</label><textarea class="form-control" name="content" id="content" rows="3" placeholder="Type Your Blog" aria-label="Type Your Blog"></textarea>
+            <br><br>
+            <input class="btn btn-success" type="submit" value="Post &raquo;">
+        </form>
+        <hr>
+    {% endblock %}

@@ -1,0 +1,25 @@
+    {%  extends'base.html' %}
+
+    {% block head %}
+    <title>Nabeel Blog Post Edit</title>
+    {% endblock %}
+
+
+
+    {%  block body %}
+        <h1 style="color:Red;font-size:40px;"> <b><strong> You Have come to Edit Post </strong></b></h1>
+        <p style="colur:Blue;font-size:20px;"><i>You can edit your post here</i></p>
+
+        <hr>
+        <h2>Edit Blog Post:</h2>
+        <form action="/posts/edit/{{post.id}}" method="POST">
+            <label for="title">Title</label><input class="form-control" type="text" name="title" id="title" value="{{ post.title }}" placeholder="Enter Title" aria-label="Enter Title">
+             <br><br>
+            <label for="author">Author</label><input class="form-control" type="text"  name="author" id="author"value="{{ post.author }}" placeholder="Enter Author" aria-label="Enter Author">
+            <br><br>
+            <label for="content">Post</label><textarea class="form-control" name="content" id="content" rows="3" placeholder="Type Your Blog" aria-label="Type Your Blog">{{ post.content }}</textarea>
+            <br><br>
+            <input class="btn btn-success" type="submit" value="Save &raquo;">
+        </form>
+        <hr>
+    {% endblock %}

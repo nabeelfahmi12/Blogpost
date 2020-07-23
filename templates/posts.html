@@ -1,0 +1,33 @@
+    {%  extends'base.html' %}
+
+    {% block head %}
+    <title>Nabeel Blog posts</title>
+    {% endblock %}
+
+    {%  block body %}
+        <br><br>
+        <div>
+            <h1 style="color:Red;font-size:40px;display: inline"> <b><strong> You Have come to Post Page </strong></b></h1>
+            <a style="display: inline" class="btn btn-success float-right" href="/posts/new">+ New Post &raquo;</a>
+            <br>
+            <br>
+            <p style="colur:Blue;font-size:20px;"><i>You can Read Post Hear</i></p>
+        </div>
+        <hr>
+        {% for post in posts %}
+            <br>
+            <h3 style="color: dodgerblue;font-size:18px;">{{ post.title }}</h3>
+            <br>
+            {% if post.author %}
+                <small style="color: gray;font-size:18px">Writen By:{{ post.author }} on {{ post.date_posted }}</small>
+            {% else %}
+                <small STYLE="color: gray;font-size: 18px">Writen By: Owner of the App on{{ post.date_posted }}</small>
+            {% endif %}
+            <br><br>
+            <h4 style="color: gold;font-size: 18px; white-space: pre-wrap ">{{ post.content}}</h4>
+            <br>
+            <a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete &raquo;</a>
+            <a class="btn btn-primary" href="/posts/edit/{{ post.id }}">Edit &raquo;</a>
+            <hr>
+        {% endfor%}
+    {% endblock %}
